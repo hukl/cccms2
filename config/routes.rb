@@ -1,4 +1,12 @@
 Cccms2::Application.routes.draw do |map|
+    
+  namespace :admin do
+    resources :nodes
+  end
+  
+  match '/*page_path' => 'content#render_page', :as => :content
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
