@@ -1,0 +1,8 @@
+<div class="article">
+  <h2 class="headline"><%= @page.title %></h2>
+  <div class="abstract"><p><%= sanitize( @page.abstract )%></p></div>
+  <div id="headline_image"><%= headline_image %></div>
+  <div class="body"><%= aggregate?(@page.body) %></div>
+</div>
+
+<%= will_paginate(@content_collection) if @content_collection %>
