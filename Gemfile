@@ -7,7 +7,11 @@ gem "rails", :git => "git://github.com/rails/rails.git"
 
 # ActiveRecord requires a database adapter. By default,
 # Rails has selected sqlite3.
-gem "sqlite3-ruby", :require => "sqlite3"
+
+gem "pg"
+gem "ruby-debug19"
+gem "RedCloth"
+gem "will_paginate"
 
 ## Bundle the gems you use:
 # gem "bj"
