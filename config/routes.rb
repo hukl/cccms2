@@ -4,7 +4,10 @@ Cccms2::Application.routes.draw do |map|
     resources :nodes
   end
   
-  match '/*page_path' => 'content#render_page', :as => :content
+  
+  scope "(/:locale)" do
+    match '/*page_path' => 'content#render_page', :as => :content
+  end
   
   
   # The priority is based upon order of creation:
