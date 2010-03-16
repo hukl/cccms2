@@ -1,9 +1,16 @@
 Cccms2::Application.routes.draw do |map|
-    
+  
+  # TODO replace me with rails 3 equivalent
+  map.root(
+    :locale => 'de',
+    :controller => 'content',
+    :action => 'render_page',
+    :page_path => ['home']
+  )
+  
   namespace :admin do
     resources :nodes
   end
-  
   
   scope "(/:locale)" do
     match '/*page_path' => 'content#render_page', :as => :content

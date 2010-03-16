@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: cccms_dev
+  pool: 5
+  username: rails
+  password: r3v0lution
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: cccms_test
+  pool: 5
+  username: rails
+  password: r3v0lution
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: cccms_dev
+  pool: 5
+  username: rails
+  password: r3v0lution
