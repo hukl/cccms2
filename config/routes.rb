@@ -8,12 +8,25 @@ Cccms2::Application.routes.draw do |map|
     :page_path => ['home']
   )
   
-  namespace :admin do
-    resources :nodes
-  end
-  
   scope "(/:locale)" do
+    namespace :admin do
+      resources :nodes do
+        member { put :publish }
+        
+        resources :revisions do
+          member { put :restore }
+          collection { post :diff }
+        end
+      end
+      resources :pages do
+        member do
+          get :preview
+        end
+      end
+    end
+    
     match '/*page_path' => 'content#render_page', :as => :content
+    
   end
   
   

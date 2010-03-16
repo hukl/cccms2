@@ -1,2 +1,108 @@
-<h1>Admin::NodesController#edit</h1>
-<p>Find me in app/views/admin/nodes_controller/edit.html.erb</p>
+<% content_for :subnavigation do %>
+  <%= link_to 'metadata', '#', :id => 'button', :class => "unselected" %>
+  <%= link_to 'Show', admin_node_path( @node ) %>
+  <%= link_to 'Preview', preview_admin_page_path(@draft) %>
+  <%= link_to 'Publish', publish_admin_node_path, :method => :put, :confirm => "Publish this draft?" %>
+  <%= link_to 'Revisions', admin_node_revisions_path(@node) %>
+<% end %>
+
+<%= form_for @node, :url => admin_node_path(@node) do |f| %>
+  <%# f.error_messages %>
+  <div id="metadata">
+    <table>
+      <tr>
+        <td class="description">Event</td>
+        <td><%# event_information %></td>
+      </tr>
+      <tr>
+        <td class="description">Slug</td>
+        <td>
+          <%= 
+            f.text_field(
+              :staged_slug, :value => @node.staged_slug || @node.slug
+            ) 
+          %>
+        </td>
+      </tr>
+      <tr>
+        <td class="description">parent</td>
+        <td>
+          <%= text_field_tag :move_to_search_term, @node.parent.title rescue "" %>
+          <div id="search_results">
+
+          </div>
+          <%= f.hidden_field(
+                :staged_parent_id,
+                :value => @node.staged_parent_id || @node.parent_id
+              )
+           %>
+        </td>
+      </tr>
+      
+      <%= fields_for @draft do |d| %>
+      <tr>
+        <td class="description">Tags - comma seperated</td>
+        <td><%= text_field_tag :tag_list, @draft.tag_list %></td>
+      </tr>
+      <tr>
+        <td class="description">Publish at</td>
+        <td><%= d.datetime_select :published_at, :value => @draft.published_at %></td>
+      </tr>
+      <tr>
+        <td class="description">Template</td>
+        <td><%= d.select :template_name, custom_page_templates, {:prompt => 'Select Template'} %></td>
+      </tr>
+      <tr>
+        <td class="description">Author</td>
+        <td><%= d.select :user_id, user_list %></td>
+      </tr>
+      <tr>
+        <td class="description">Images</td>
+        <td>
+          <ul id="image_box" rel="<%# @draft.id %>">
+            <%# @draft.assets.images.each do |image| %>
+              <li rel="images_<%# image.id %>">
+                <%# image_tag(image.upload.url(:thumb)) %>
+              </li>
+            <%# end %>
+          </ul>
+          <div class="clear_left right">
+            <a id="image_browser_toggle" class="unselected" href="#">image browser</a>
+          </div>
+          <div id="image_browser">
+            <ul>
+              <%# Asset.images.each do |image| %>
+              <li rel="images_<%# image.id %>"><%# image_tag(image.upload.url(:thumb)) %></li>
+              <%# end %>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <table id="content">
+    <tr>
+      <th class="description"></th>
+      <th class="content"></th>
+    </tr>
+    <tr>
+      <td class="description">Title</td>
+      <td><%= d.text_field :title %></td>
+    </tr>
+    <tr>
+      <td class="description">Abstract</td>
+      <td><%= d.text_area :abstract %></td>
+    </tr>
+    <tr>
+      <td class="description">Body</td>
+      <td><%= d.text_area :body, :class => 'with_editor' %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="right"><%= d.submit 'save' %></td>
+    </tr>
+  </table>
+  <% end %>
+<% end %>
+</div>

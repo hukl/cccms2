@@ -1,0 +1,121 @@
+# German translations for Ruby on Rails 
+# by Clemens Kofler (clemens@railway.at)
+
+de:
+  show_tag_headline: "Seiten mit dem Tag:"
+  old_ccc_de: das alte ccc.de
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%A, %e. %B %Y, %H:%M Uhr"
+      short: "%e. %B, %H:%M Uhr"
+      long: "%A, %e. %B %Y, %H:%M Uhr"
+      time: "%H:%M"
+
+    am: "vormittags"
+    pm: "nachmittags"
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: 'eine halbe Minute'
+      less_than_x_seconds:
+        zero: 'weniger als 1 Sekunde'
+        one: 'weniger als 1 Sekunde'
+        other: 'weniger als {{count}} Sekunden'
+      x_seconds:
+        one: '1 Sekunde'
+        other: '{{count}} Sekunden'
+      less_than_x_minutes:
+        zero: 'weniger als 1 Minute'
+        one: 'weniger als eine Minute'
+        other: 'weniger als {{count}} Minuten'
+      x_minutes:
+        one: '1 Minute'
+        other: '{{count}} Minuten'
+      about_x_hours:
+        one: 'etwa 1 Stunde'
+        other: 'etwa {{count}} Stunden'
+      x_days:
+        one: '1 Tag'
+        other: '{{count}} Tage'
+      about_x_months:
+        one: 'etwa 1 Monat'
+        other: 'etwa {{count}} Monate'
+      x_months:
+        one: '1 Monat'
+        other: '{{count}} Monate'
+      about_x_years:
+        one: 'etwa 1 Jahr'
+        other: 'etwa {{count}} Jahre'
+      over_x_years:
+        one: 'mehr als 1 Jahr'
+        other: 'mehr als {{count}} Jahre'
+      
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'
+        separator: 
+        delimiter: 
+        precision: 
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+
+  support:
+    array:
+      sentence_connector: "und"
+      skip_last_comma: true
+        
+  activerecord:
+    errors:
+      template:
+        header: 
+          one: 1 error prohibited this {{model}} from being saved
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+        body: "There were problems with the following fields:"
+
+      messages:
+        inclusion: "is not included in the list"
+        exclusion: "is reserved"
+        invalid: "is invalid"
+        confirmation: "doesn't match confirmation"
+        accepted: "must be accepted"
+        empty: "can't be empty"
+        blank: "can't be blank"
+        too_long: "is too long (maximum is {{count}} characters)"
+        too_short: "is too short (minimum is {{count}} characters)"
+        wrong_length: "is the wrong length (should be {{count}} characters)"
+        taken: "has already been taken"
+        not_a_number: "is not a number"
+        greater_than: "must be greater than {{count}}"
+        greater_than_or_equal_to: "must be greater than or equal to {{count}}"
+        equal_to: "must be equal to {{count}}"
+        less_than: "must be less than {{count}}"
+        less_than_or_equal_to: "must be less than or equal to {{count}}"
+        odd: "must be odd"
+        even: "must be even"

@@ -8,7 +8,7 @@ gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "pg"
 gem "ruby-debug19"
 gem "RedCloth"
-#gem "will_paginate"
+gem "will_paginate"
 
 # Use unicorn as the web server
 # gem 'unicorn'
